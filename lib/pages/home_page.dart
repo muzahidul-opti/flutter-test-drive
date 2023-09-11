@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/repos/article_repo.dart';
 import '../models/article.dart';
 import '../widgets/article_widget.dart';
+import 'article_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -30,7 +31,19 @@ class _HomePageState extends State<HomePage> {
           return ListView.builder(
             itemCount: snapshot.data!.length,
             itemBuilder: (item, index) {
-              return ArtcileCard(article: snapshot.data![index]);
+              final article = snapshot.data![index];
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(
+                      builder: (context) => ArticlePage(article: article),
+                    )
+                  );
+                },
+                child: ArticleCard(article: article),
+              );
+              
             },
           );
         } 

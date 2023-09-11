@@ -5,7 +5,7 @@ class ArticleAPI {
     try {
       const success = true;
       if (!success) {
-        throw Exception('Failed to load Articles!');
+        throw Exception("Failed to load Articles!");
       }
       final response =
           await Future.delayed(const Duration(seconds: 10), () => articles);

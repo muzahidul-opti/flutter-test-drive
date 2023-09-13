@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/form_data.dart';
+import 'package:flutter_application_1/widgets/form_result.dart';
 
 class CreateArticle extends StatefulWidget {
   const CreateArticle({super.key});
@@ -88,19 +89,15 @@ class _CreateArticleState extends State<CreateArticle> {
               TextFormField(
                 decoration:  const InputDecoration(labelText: 'Your Email'),
                 validator: (value) => value!.isEmpty ? 'Please enter title' : null,
-                onSaved: (newValue) => formData.title = newValue,
+                onSaved: (newValue) => formData.email = newValue,
               ),
               ElevatedButton(
                 onPressed: () {
                   final form = _formKey.currentState!;
                   if (form.validate()) {
-                    form.save();
-                    print(formData);
+                    form.save(); 
                     form.reset();
-                    setState(() {
-                      formData.isBreaking = false;
-                      formData.category = null;
-                    });
+                    _showResultDialog(context);
                   }
                   FocusScope.of(context).unfocus();
                 }, 
@@ -111,5 +108,28 @@ class _CreateArticleState extends State<CreateArticle> {
         ),
       )
     );
+  }
+
+  Future<void> _showResultDialog(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Done'),
+          content: FormResult(data:formData),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(), 
+              child: const Text('OK')
+            )
+          ],
+        );
+      }
+    ).then((value) {
+        setState(() {
+          formData.isBreaking = false;
+          formData.category = null;
+        });
+      });
   }
 }

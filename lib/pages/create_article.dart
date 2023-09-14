@@ -115,7 +115,6 @@ class _CreateArticleState extends State<CreateArticle> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Done'),
           content: FormResult(data:formData),
           actions: [
             TextButton(

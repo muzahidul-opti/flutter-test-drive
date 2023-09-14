@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/repos/article_repo.dart';
 import '../models/article.dart';
-import '../widgets/article_widget.dart';
+import '../widgets/article_card.dart';
 import 'article_page.dart';
 
 class HomePage extends StatefulWidget {

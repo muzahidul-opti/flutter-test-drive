@@ -6,6 +6,19 @@ void main() {
   runApp(const MyApp());
 }
 
+final lightTheme = ThemeData(
+  textTheme: const TextTheme(
+    titleLarge: TextStyle(fontSize: 24)
+  )
+);
+
+final darkTheme = ThemeData(
+  brightness: Brightness.dark,
+  textTheme: const TextTheme(
+    titleLarge: TextStyle(fontSize: 24)
+  )
+);
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -14,7 +27,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter UI widgets',
-      home: MainPage(),
+      theme: lightTheme.copyWith(
+        platform: TargetPlatform.android,
+        colorScheme: lightTheme.colorScheme.copyWith(
+          primary: Colors.red,
+          secondary: Colors.green
+        )
+      ),
+      darkTheme:darkTheme,
+      home: const MainPage(),
     );
   }
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/article.dart';
 
-class ArtcileCard extends StatelessWidget {
+class ArticleCard extends StatelessWidget {
   final Article article;
 
-  const ArtcileCard({super.key, required this.article});
+  const ArticleCard({super.key, required this.article});
 
   @override
   Widget build(BuildContext context) {

@@ -19,6 +19,7 @@ In this project, I have explored common UI widgets.
 
 <p float="left">
   <img src="screenshot/screen-1.png" width="300" />
+  <img src="screenshot/screen-4.png" width="300" />
   <img src="screenshot/screen-2.png" width="300" /> 
   <img src="screenshot/screen-3.png" width="300" />
 </p>
